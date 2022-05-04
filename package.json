@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "clean": "rm -rf dist",
+    "copy": "cp -r src/.reciple dist",
+    "compile": "yarn clean && tsc && yarn copy",
+    "pack": "yarn compile && cd dist && rmm pack ../module.zip true"
+  },
+  "devDependencies": {
+    "@ghextercortes/djs-pagination": "^0.0.9",
+    "reciple": "^1.0.19",
+    "reciple-module-manager": "^1.0.5",
+    "typescript": "^4.6.4"
+  }
+}

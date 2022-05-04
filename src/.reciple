@@ -1,0 +1,19 @@
+{
+  "name": "reciple-help",
+  "description": "Help command for Reciple",
+  "authors": [
+    "GhexterCortes"
+  ],
+  "supportedVersions": [
+    "1.0.19"
+  ],
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "help.js",
+  "includes": [],
+  "github": "https://github.com/GhexterCortes/reciple-help-command",
+  "url": "",
+  "dependencies": {
+    "@ghextercortes/djs-pagination": "^0.0.9"
+  }
+}
