@@ -53,7 +53,7 @@ class Help implements RecipleScript {
                 name: command.name,
                 description: command.description || '',
                 usage: this.getUsage(command),
-                type: command.type,
+                type: command.builder,
                 builder: command
             });
         }
@@ -61,7 +61,7 @@ class Help implements RecipleScript {
     }
 
     public getUsage(command: MessageCommandBuilder|InteractionCommandBuilder, messageCommandPrefix: string = '!'): string {
-        if ((command as MessageCommandBuilder).type == 'MESSAGE_COMMAND') {
+        if ((command as MessageCommandBuilder).builder == 'MESSAGE_COMMAND') {
             let options = '';
 
             for (const option of (command as MessageCommandBuilder).options) {
@@ -69,7 +69,7 @@ class Help implements RecipleScript {
             }
 
             return `${messageCommandPrefix}${command.name} ${options.trim()}`;
-        } else if ((command as InteractionCommandBuilder).type == 'INTERACTION_COMMAND') {
+        } else if ((command as InteractionCommandBuilder).builder == 'INTERACTION_COMMAND') {
             let options = '';
 
             for (const option of (command as InteractionCommandBuilder).options) {
@@ -85,7 +85,7 @@ class Help implements RecipleScript {
     }
 
     public getCommandHelp(command: MessageCommandBuilder|InteractionCommandBuilder) {
-        const builder = (command as MessageCommandBuilder).type === 'MESSAGE_COMMAND' ? (command as MessageCommandBuilder) : (command as InteractionCommandBuilder).toJSON();
+        const builder = (command as MessageCommandBuilder).builder === 'MESSAGE_COMMAND' ? (command as MessageCommandBuilder) : (command as InteractionCommandBuilder).toJSON();
 
         let optionFields: EmbedFieldData[] = [];
 
